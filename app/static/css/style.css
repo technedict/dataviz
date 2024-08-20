@@ -78,6 +78,7 @@ label {
 
 input[type="file"],
 input[type="text"],
+input[type="password"],
 select {
     width: 100%;
     padding: 8px;
@@ -87,7 +88,8 @@ select {
 }
 
 
-button.btn {
+button.btn,
+input[type="submit"] {
     background-color: #333;
     color: #fff;
     padding: 10px 15px;
@@ -97,8 +99,17 @@ button.btn {
     cursor: pointer;
 }
 
-button.btn:hover {
+button.btn:hover,
+input[type="submit"]:hover {
     background-color: #555;
+}
+
+.row-center{
+    display: inline;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    float: left;
+    padding: 10px;
 }
 
 .message {
