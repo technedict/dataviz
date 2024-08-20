@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+#nav-mobile{
+    margin-right: 70px;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-wrapper .brand-logo {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-wrapper ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-wrapper ul li {
+    display: inline;
+    margin-left: 25px;
+}
+
+.nav-wrapper ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.container {
+    padding: 80px 20px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="file"],
+input[type="text"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+button.btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.btn:hover {
+    background-color: #555;
+}
+
+.message {
+    position: absolute;
+    padding: 10px;
+    top: 60px;
+    border-radius: 4px;
+}
+.success, .danger, .info{
+    position: absolute;
+    padding: 25px;
+}
+.success{
+    color: #3c763d;
+    border: 1px solid #3c763d;
+    background-color: #dff0d8;
+}
+
+.danger{
+    color: #763c3c;
+    border: 1px solid #763c3c;
+    background-color: #f0d8d8;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

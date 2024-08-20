@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h2>Generate Report</h2>
+    <form action="{{ url_for('data.report') }}" method="POST">
+        <div class="mb-3">
+            <label for="report_type" class="form-label">Choose Report Type</label>
+            <select name="report_type" id="report_type" class="form-select" required>
+                <option value="pdf">PDF Report</option>
+                <option value="excel">Excel Report</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Download Report</button>
+    </form>
+{% endblock %}

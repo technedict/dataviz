@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h2>Exploratory Data Analysis</h2>
+    <form action="{{ url_for('data.eda') }}" method="POST">
+        <div class="mb-3">
+            <label for="analysis_type" class="form-label">Choose Analysis Type</label>
+            <select name="analysis_type" id="analysis_type" class="form-select" required>
+                <option value="summary_statistics">Summary Statistics</option>
+                <option value="visualization">Visualization</option>
+            </select>
+        </div>
+        
+        <div id="visualization-options" style="display: none;">
+            <div class="mb-3">
+                <label for="chart_type" class="form-label">Choose Chart Type</label>
+                <select name="chart_type" id="chart_type" class="form-select">
+                    <option value="histogram">Histogram</option>
+                    <option value="scatter">Scatter Plot</option>
+                    <option value="bar">Bar Chart</option>
+                    <option value="line">Line Chart</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="column_x" class="form-label">X-Axis</label>
+                <select name="column_x" id="column_x" class="form-select">
+                    {% for column in columns %}
+                        <option value="{{ column }}">{{ column }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="column_y" class="form-label">Y-Axis (optional)</label>
+                <select name="column_y" id="column_y" class="form-select">
+                    <option value="" selected>None</option>
+                    {% for column in columns %}
+                        <option value="{{ column }}">{{ column }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Generate Analysis</button>
+    </form>
+
+    {% if visualization %}
+    <h3>Generated Visualization</h3>
+    <img src="data:image/png;base64,{{ visualization }}" alt="Generated Visualization">
+    {% endif %}
+
+    <script>
+        const analysisType = document.getElementById('analysis_type');
+        const visualizationOptions = document.getElementById('visualization-options');
+
+        analysisType.addEventListener('change', function() {
+            if (this.value === 'visualization') {
+                visualizationOptions.style.display = 'block';
+            } else {
+                visualizationOptions.style.display = 'none';
+            }
+        });
+    </script>
+{% endblock %}

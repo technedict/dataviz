@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h2>Welcome to Dataviz</h2>
+    <form id="signup-form" action="" method="POST">
+		{{ form.hidden_tag() }}
+		<div class="col-center -gap-sm">
+			<div class="mdc br col-2 -gap-sm">
+				<div class="col-left -gap-xs occupy-x">
+					<label class="outside-inp" for="signup-form-fname">
+						<span class="body-text-sm medium-text">First name *</span>
+					</label>
+					<div class="inp-field char-inp sm c-normal">
+						{{ form.firstname(size=32) }}
+					</div>
+					{%- for error in form.firstname.errors%}
+					<div class="inp-field--tooltip -gap-xs active" id="signup-form-fname_tooltip">
+						<span class="ms-rounded body-text-sm">error</span>
+						<span class="body-text-xs">{{error}}</span>
+					</div>
+					{%- endfor %}
+				</div>
+				<div class="col-left -gap-xs occupy-x">
+					<label class="outside-inp" for="signup-form-lname">
+						<span class="body-text-sm medium-text">Last name *</span>
+					</label>
+					<div class="inp-field char-inp sm c-normal">
+						{{ form.lastname(size=32) }}
+					</div>											
+						{%- for error in form.lastname.errors %}
+						<div class="inp-field--tooltip -gap-xs active" id="signup-form-lname_tooltip">
+							<span class="ms-rounded body-text-sm">error</span>
+							<span class="body-text-xs">{{error}}</span>
+						</div>
+						{%- endfor %}
+				</div>
+			</div>
+			<div class="col-left -gap-xs occupy-x"> 
+				<label class="outside-inp" for="signup-form-email"> 
+					<span class="body-text-sm medium-text">Email *</span>
+				</label>
+				<div class="inp-field char-inp sm c-normal"> 
+					{{ form.email(size=64) }}
+				</div>
+	
+					{%- for error in form.email.errors %}
+					<div class="inp-field--tooltip -gap-xs active" id="signup-form-email_tooltip">
+						<span class="ms-rounded body-text-sm">error</span>
+						<span class="body-text-xs">{{error}}</span>
+					</div>
+					{%- endfor %}
+	
+			</div>
+			<div class="col-left -gap-xs occupy-x"> 
+				<label class="outside-inp" for="signup-form-password"> 
+					<span class="body-text-sm medium-text">Password *</span> 
+				</label>
+				<div class="inp-field char-inp sm c-normal"> 
+					{{ form.password(size=32) }}
+				</div>
+					{%- for error in form.password.errors %}
+					<div class="inp-field--tooltip -gap-xs -align-start active" id="signup-form-password_tooltip">
+						<span class="ms-rounded body-text-sm">error</span>
+						<span class="body-text-xs">{{error}}</span>
+					</div>
+					{%- endfor %}
+			</div>
+			<div class="col-left -gap-xs occupy-x"> 
+				<label class="outside-inp" for="signup-form-confirm_password"> 
+					<span class="body-text-sm medium-text">Confirm password *</span>
+				</label>
+				<div class="inp-field char-inp sm c-normal">
+					{{ form.password2(size=32) }}
+				</div>
+					{%- for error in form.password2.errors %}
+					<div class="inp-field--tooltip -gap-xs active" id="signup-form-confirm_password_tooltip">
+						<span class="ms-rounded body-text-sm">error</span>
+						<span class="body-text-xs">{{error}}</span>
+					</div>
+					{%- endfor %}
+			</div>
+			<label class="row-left -align-start -gap-xs occupy-x" for="signup-form-accept_terms"> 
+				{{ form.TC }}
+				<div class="checkbox"></div>
+				<span class="body-text-sm" style="color: var(--light)">
+					I agree to the 
+					<a href="/">Terms of service</a> and 
+					<a href="/">Privacy policy</a>
+				</span>
+			</label>
+					{%- for error in form.TC.errors %}
+					<div class="inp-field--tooltip -gap-xs unchecked" id="signup-form-confirm_password_tooltip">
+						<span class="ms-rounded body-text-sm">error</span>
+						<span class="body-text-xs">{{error}}</span>
+					</div>
+					{%- endfor %}
+			<div class="inp-field submit button primary-button sm c-normal"> 
+				{{ form.submit() }}
+			</div>
+			<div class="row-center occupy-x"> 
+				<span class="body-text-sm" style="color: var(--light)">Or Continue with</span> 
+			</div>
+		</div>
+	</form>
+{% endblock %}
+
+

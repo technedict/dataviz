@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h2>Upload Your Dataset</h2>
+    <form action="{{ url_for('upload.main') }}" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="file" class="form-label">Choose CSV or Excel File</label>
+            <input type="file" name="file" class="form-control" id="file" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+{% endblock %}

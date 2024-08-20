@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Verify your Account</h1>
+    <p>A verification Email has beeen sent to {{current_user.email}}, Please click on the link to verify your account</p>
+    <p>Didn't get an email?, Click <a href="{{ url_for('auth.verify') }}">here</a> to resend</p>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h2>Summary Statistics</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Statistic</th>
+                {% for column in summary_stats.keys() %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat, values in summary_stats.items() %}
+                <tr>
+                    <td>{{ stat }}</td>
+                    {% for value in values.values() %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

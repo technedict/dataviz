@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>What do you plan on doing {{current_user.firstname}}</h1>
+
+    <h2>Files:</h2>
+    {%if files == []%}
+        <p>You have no files</p>
+    {%else%}
+        <ul>
+            {%for file in files%}
+            <li>{{file}}</li>
+            {%endfor%}
+        </ul>
+        <p><a href="{{url_for('data.clear_session')}}" class="btn">Clear file</a>: This will also delete the file from our server</p>
+    {%endif%}
+{% endblock %}
