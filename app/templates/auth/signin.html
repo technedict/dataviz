@@ -1,48 +1,58 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATAVIZ - Auth</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link href="{{ url_for('static', filename='css/form.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-container">
+		<a href="{{ url_for('home.main') }}" class="back"><i class="fas fa-arrow-left"></i></a>
+        <h2>Welcome back!
+		</h2>
+        <form class="row g-3 needs-validation" novalidate>
+          <div class="col-12">
+			<label for="validationCustomEmail" class="form-label">Email:</label>
+            <div class="input-group mb-3 has-validation">
+				<input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2" id="validationCustomEmail" aria-describedby="inputGroupPrepend" required>
+				<div class="invalid-feedback">
+				  Please enter your Email.
+				</div>
+			</div>
+          </div>
+		  <div class="col-12">
+			<label for="validationCustomPassword" class="form-label">Password:</label>
+            <div class="input-group mb-3 has-validation">
+				<input type="password" class="form-control" placeholder="Password" id="validationCustomPassword" aria-describedby="inputGroupPrepend" required>
+				<div class="invalid-feedback">
+				  Please enter a password.
+				</div>
+			</div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+          </div>
+        </form><br>
+		<p class="text-center ">Don't have an account? <a href="{{ url_for('auth.register') }}">Register</a></p>
+		<p class="text-center ">Forgot Password? <a href="{{ url_for('auth.register') }}">Reset</a></p>
+    </div>
 
-{% block content %}
-	<form id="login-form" action="" method="POST">
-		{{ form.hidden_tag() }}
-		<div class="col-center -gap-md">
-			<div class="col-left -gap-xs occupy-x"> 
-				<label class="outside-inp" for="login-form-email"> 
-					<span class="body-text-sm medium-text">Email</span>
-				</label>
-				<div class="inp-field char-inp sm c-normal"> 
-					{{ form.email(size=32) }}
-				</div>
-				{%- for error in form.email.errors %}
-					<div class="inp-field--tooltip -gap-xs active" id="login-form-email_tooltip">
-						<span class="ms-rounded body-text-sm">error</span>
-						<span class="body-text-xs">{{error}}</span>
-					</div>
-				{%- endfor %}
-			</div>
-			<div class="col-left -gap-xs occupy-x"> 
-				<label class="outside-inp" for="login-form-password"> 
-					<span class="body-text-sm medium-text">Password</span> 
-				</label>
-				<div class="inp-field char-inp sm c-normal"> 
-					{{ form.password(size=32) }}
-				</div>
-				{%- for error in form.email.errors %}
-					<div class="inp-field--tooltip -gap-xs active" id="login-form-password_tooltip">
-						<span class="ms-rounded body-text-sm">error</span>
-						<span class="body-text-xs">{{error}}</span>
-					</div>
-				{%- endfor %}
-			</div>
-			<div class="inp-field submit button primary-button sm c-normal">
-				{{ form.submit() }}
-			</div>
-		</div>
-	</form>
-	<div class="row-center -gap-xs occupy-x">
-		<span class="body-text-sm" style="color: var(--light)">Don't have an account?</span>
-		<a href="{{ url_for('auth.register') }}" id="login">Sign Up</a>
-	</div>
-	<div class="row-center -gap-xs occupy-x">
-		<span class="body-text-sm" style="color: var(--light)"> Forgot Password?</span>
-		<a href="{{ url_for('auth.reset_password_request') }}" id="login">Password Reset</a>
-	</div>
-{% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/validate.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/layout.js') }}"></script>
+	{% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <script>
+                    showMessage('This is a success message!', 'success');
+                </script>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+  </body>
+</html>
+

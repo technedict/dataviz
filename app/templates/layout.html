@@ -1,59 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Dataviz{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>DATAVIZ - Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="{{ url_for('home.main') }}" class="brand-logo">Dataviz</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    {%if current_user.is_authenticated%}
-                    <li><a href="{{ url_for('upload.main') }}">Upload Data</a></li>
-                    <li><a href="{{ url_for('data.cleaning') }}">Clean Data</a></li>
-                    <li><a href="{{ url_for('data.eda') }}">EDA</a></li>
-                    <li><a href="{{ url_for('data.report') }}">Reports</a></li>
-                    <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
-                    {%else%}
-                    <li><a href="{{ url_for('auth.login') }}">Login/Signup</a></li>
-                    {%endif%}
-                </ul>
-            </div>
-        </nav>
-    </header>
-    
-    <main>
-        {% with messages = get_flashed_messages(with_categories=True) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="message"  id="notification">
-                    <!--
-                        The text in the notification text has to be changed dynamically.
-                        depending on the message. The color will be handled by the css 
-                        classnames => success: green, danger: red; info: orange.
-                    -->
-                    <span class="{{category}}" id="notification-texta">
-                        {{message}}
-                    </span>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        <div class="container">
-            {% block content %}
-            {% endblock %}
-        </div>
-    </main>
-    
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Data Analysis Platform. All rights reserved.</p>
-        </div>
-    </footer>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<body>
+
+    <!-- Collapsible Side Navbar -->
+    <nav class="side-navbar" id="sidebar">
+        <div class="collapse" id="navbarContent">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h3 class="navbar-brand"><a href="{{ url_for('home.main') }}"><i class="fas fa-home"></i><span>DATAVIZ</span></a></h3>
+            <ul>
+                <li><a href="{{ url_for('home.main') }}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="{{ url_for('upload.main') }}"><i class="fas fa-upload"></i> <span>Upload Data</span></a></li>
+                <li><a href="{{ url_for('data.eda') }}"><i class="fas fa-chart-line"></i> <span>Data Analysis</span></a></li>
+                <li><a href="{{ url_for('data.report') }}"><i class="fas fa-file-alt"></i> <span>Reports</span></a></li>
+                <li><a href="{{ url_for('auth.logout') }}"><i class="fas fa-cog"></i> <span>Logout</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Message Container -->
+    <div class="message-container" id="messageContainer">
+        <div id="messageText"></div>
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/layout.js') }}"></script>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <script>
+                    showMessage('This is a success message!', 'success');
+                </script>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 </body>
+
 </html>

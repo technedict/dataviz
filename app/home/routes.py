@@ -13,7 +13,7 @@ def main():
         return redirect(url_for('home.home'))
     return render_template('home/main.html')
 
-@bp.route('/home', methods=['GET', 'POST'])
+@bp.route('/dashboard', methods=['GET', 'POST'])
 @login_required
 def home():
     user_files = []
