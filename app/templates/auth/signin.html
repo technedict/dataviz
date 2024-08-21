@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<div class="form1">
 	<form id="login-form" action="" method="POST">
 		{{ form.hidden_tag() }}
 		<div class="col-center -gap-md">
@@ -9,7 +10,7 @@
 					<span class="body-text-sm medium-text">Email</span>
 				</label>
 				<div class="inp-field char-inp sm c-normal"> 
-					{{ form.email(size=32) }}
+					{{ form.email(size=32)}}
 				</div>
 				{%- for error in form.email.errors %}
 					<div class="inp-field--tooltip -gap-xs active" id="login-form-email_tooltip">
@@ -19,7 +20,7 @@
 				{%- endfor %}
 			</div>
 			<div class="col-left -gap-xs occupy-x"> 
-				<label class="outside-inp" for="login-form-password"> 
+				<label class="outside-inp" for="login-form-password" style="padding-top: 10px;"> 
 					<span class="body-text-sm medium-text">Password</span> 
 				</label>
 				<div class="inp-field char-inp sm c-normal"> 
@@ -45,4 +46,5 @@
 		<span class="body-text-sm" style="color: var(--light)"> Forgot Password?</span>
 		<a href="{{ url_for('auth.reset_password_request') }}" id="login">Password Reset</a>
 	</div>
+</div>
 {% endblock %}

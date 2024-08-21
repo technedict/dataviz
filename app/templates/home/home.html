@@ -1,17 +1,22 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <h1>What do you plan on doing {{current_user.firstname}}</h1>
+    <h1 style="font-size: 24px; color: #333;">What do you plan on doing {{current_user.firstname}}</h1>
 
-    <h2>Files:</h2>
-    {%if files == []%}
-        <p>You have no files</p>
-    {%else%}
-        <ul>
-            {%for file in files%}
-            <li>{{file}}</li>
-            {%endfor%}
+    <h2 style="font-size: 20px; color: #555; margin-top: 20px;">Files:</h2>
+    {% if files == [] %}
+        <p style="font-size: 16px; color: #777;">You have no files</p>
+    {% else %}
+        <ul style="list-style-type: none; padding-left: 0;">
+            {% for file in files %}
+            <li style="font-size: 16px; color: #333; margin-bottom: 8px;">{{file}}</li>
+            {% endfor %}
         </ul>
-        <p><a href="{{url_for('data.clear_session')}}" class="btn">Clear file</a>: This will also delete the file from our server</p>
-    {%endif%}
+        <p>
+            <a href="{{url_for('data.clear_session')}}" style="font-size: 14px; color: #fff; background-color: #007BFF; padding: 10px 15px; text-decoration: none; border-radius: 4px;">
+                Clear file
+            </a>: 
+            <span style="font-size: 14px; color: #777;">This will also delete the file from our server</span>
+        </p>
+    {% endif %}
 {% endblock %}

@@ -19,7 +19,8 @@
                     <li><a href="{{ url_for('data.report') }}">Reports</a></li>
                     <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
                     {%else%}
-                    <li><a href="{{ url_for('auth.login') }}">Login/Signup</a></li>
+                    <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                    <li><a href="{{ url_for('auth.login') }}">Sign Up</a></li>
                     {%endif%}
                 </ul>
             </div>

@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <h2>Welcome to Dataviz</h2>
     <form id="signup-form" action="" method="POST">
 		{{ form.hidden_tag() }}
 		<div class="col-center -gap-sm">
@@ -103,7 +102,7 @@
 		</div>
 	</form>
 	<div class="row-center -gap-xs occupy-x">
-		<span class="body-text-sm" style="color: var(--light)">Already have an account?</span>
+		<span class="body-text-sm" style="color: var(--light); position:absolute; bottom: 0%; text-align: center;">Already have an account?</span>
 		<a href="{{ url_for('auth.login') }}" id="login">Sign In</a>
 	</div>
 {% endblock %}
