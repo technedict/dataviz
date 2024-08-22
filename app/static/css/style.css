@@ -1,145 +1,164 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
     margin: 0;
     padding: 0;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-/* Header Styles */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-#nav-mobile{
-    margin-right: 70px;
-}
-
-.nav-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-wrapper .brand-logo {
-    font-size: 1.5em;
-    text-decoration: none;
-    color: #fff;
-}
-
-.nav-wrapper ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-wrapper ul li {
-    display: inline;
-    margin-left: 25px;
-}
-
-.nav-wrapper ul li a {
-    text-decoration: none;
-    color: #fff;
 }
 
 .container {
-    padding: 80px 20px;
+    padding: 40px 20px;
 }
 
 h2 {
-    color: #333;
-    margin-bottom: 20px;
+    color: #7FFF00;
+    margin-bottom: 30px;
 }
 
-.form-group {
+.side-navbar {
+    background-color: #1e1e1e;
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: width 0.3s ease;
+}
+
+.side-navbar.collappsed {
+    width: 80px;
+}
+
+.side-navbar h4 {
+    color: #BFFF00;
+    margin-bottom: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.side-navbar.collappsed span {
+    display: none;
+}
+
+.side-navbar.collappsed .fas {
+    padding: 8px;
+}
+
+.side-navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-navbar ul li {
     margin-bottom: 15px;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+.side-navbar ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
-input[type="file"],
-input[type="text"],
-input[type="password"],
-select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.side-navbar ul li a i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    margin-top: 25px;
+    transition: 0.1s ease-in;
 }
 
+.side-navbar.collappsed ul li a i {
+    margin-left: -4px;
+    
+}
 
-button.btn,
-input[type="submit"] {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 15px;
-    margin-top: 15px;
+.icn{
+    color: #FFFFFF;
+    margin-top: 30px;
+}
+
+.side-navbar ul li a:hover, .icn:hover {
+    color: #7FFF00 !important;
+}
+
+.logo span{
+    text-decoration: none !important;
+    color: #7FFF00;
+    margin-top: 40px;
+    font-weight: bolder;
+}
+
+.link-span{
+    font-size: 1.2em;
+    margin-top: 30px;
+}
+
+.main-content {
+    margin-left: 290px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.collappsed {
+    margin-left: 100px;
+}
+
+.dashboard-card {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dashboard-card h4 {
+    color: #7FFF00;
+    margin-bottom: 15px;
+}
+
+.dashboard-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-card ul li {
+    margin-bottom: 10px;
+    color: #cccccc;
+}
+
+.dashboard-card ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.dashboard-card ul li a:hover {
+    text-decoration: underline;
+}
+
+.btn-primary {
+    background-color: #7FFF00;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button.btn:hover,
-input[type="submit"]:hover {
-    background-color: #555;
-}
-
-.row-center{
-    display: inline;
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    float: left;
-    padding: 10px;
-}
-
-.message {
-    position: absolute;
-    padding: 10px;
-    top: 60px;
-    border-radius: 4px;
-}
-.success, .danger, .info{
-    position: absolute;
-    padding: 25px;
-}
-.success{
-    color: #3c763d;
-    border: 1px solid #3c763d;
-    background-color: #dff0d8;
-}
-
-.danger{
-    color: #763c3c;
-    border: 1px solid #763c3c;
-    background-color: #f0d8d8;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
+    color: #121212;
     padding: 10px 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #BFFF00;
+    color: #121212;
+}
+
+.navbar-toggler {
+    background-color: transparent;
+    color: #7FFF00;
+    margin-top: -70px;
+    float: right;
+    border: none;
+    font-size: 2em;
     text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+}
+.side-navbar.collappsed .navbar-toggler .fas{
+    margin-top: 50px !important;
 }

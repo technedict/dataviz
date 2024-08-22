@@ -14,7 +14,9 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('home.main'))
     form = LoginForm()
+    print(form.errors)
     if form.validate_on_submit():
+        flash('hey')
         user = db.session.scalar(
             sa.select(User).where(User.email == form.email.data))
         if user is None:
@@ -44,12 +46,13 @@ def register():
         return redirect(url_for('home.main'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(firstname=form.firstname.data, lastname=form.lastname.data, email=form.email.data)
+        flash('hey')
+        user = User(username=form.username.data, firstname=form.firstname.data, lastname=form.lastname.data, email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
         login_user(user)
-        flash(('Congratulations, you are now a registered user!'), category="success")
+        flash('Congratulations, you are now a registered user!', category="success")
         return redirect(url_for('home.main'))
     return render_template('auth/signup.html', title=('Register'),
                            form=form)

@@ -7,22 +7,22 @@ from app.models import User
 
 
 class LoginForm(FlaskForm):
-    email = StringField(('Email'), validators=[DataRequired(), Email()], render_kw={"placeholder": "email@example.com", "id": "login-form-email"})
-    password = PasswordField(('Password'), validators=[DataRequired()], render_kw={"placeholder": "Password", "id": "login-form-password"})
-    remember_me = BooleanField(('Remember Me'))
-    submit = SubmitField(('Sign In'))
+    email = StringField(('Email'), validators=[DataRequired(), Email()], render_kw={"class":"form-control", "aria-label": "Email", "id": "validationCustomEmail","aria-describedby":"inputGroupPrepend"})
+    password = PasswordField(('Password'), validators=[DataRequired()], render_kw={"placeholder": "Password", "class":"form-control", "id": "validationCustomPassword", "aria-describedby":"inputGroupPrepend"})
+    submit = SubmitField(('Sign In'), render_kw={"class":"btn btn-primary"})
 
 
 class RegistrationForm(FlaskForm):
-    firstname = StringField(('First Name'), validators=[DataRequired()], render_kw={"placeholder": "John", "id": "signup-form-fname"})
-    lastname = StringField(('Last Name'), validators=[DataRequired()], render_kw={"placeholder": "Doe", "id": "signup-form-lname"})
-    email = StringField(('Email'), validators=[DataRequired(), Email()], render_kw={"placeholder": "email@example.com", "id": "signup-form-email"})
-    password = PasswordField(('Password'), validators=[DataRequired()], render_kw={"placeholder": "Password", "id": "signup-form-password"})
+    firstname = StringField(('First Name'), validators=[DataRequired()], render_kw={"class":"form-control", "id": "validationCustom01", "value":"John"})
+    lastname = StringField(('Last Name'), validators=[DataRequired()], render_kw={ "class":"form-control", "id": "validationCustom02", "value":"Doe"})
+    username = StringField(('Username'), validators=[DataRequired()], render_kw={ "class":"form-control", "id": "validationCustomUsername", "aria-describedby":"inputGroupPrepend"})
+    email = StringField(('Email'), validators=[DataRequired(), Email()], render_kw={"class":"form-control", "aria-label": "Email", "id": "validationCustomEmail","aria-describedby":"basic-addon2"})
+    password = PasswordField(('Password'), validators=[DataRequired()], render_kw={"placeholder": "Password", "class":"form-control", "id": "validationCustomPassword", "aria-describedby":"inputGroupPrepend"})
     password2 = PasswordField(
         ('Repeat Password'), validators=[DataRequired(),
-                                           EqualTo('password')], render_kw={"placeholder": "Repeat Password", "id": "signup-form-confirm_password"})
-    TC = BooleanField(('Remember Me'), validators=[DataRequired()], render_kw={"id": "signup-form-accept_terms"})
-    submit = SubmitField(('Register'))
+                                           EqualTo('password')], render_kw={"placeholder": "Confirm Password","class":"form-control", "id": "validationCustomPassword", "aria-describedby":"inputGroupPrepend"})
+    terms = BooleanField(('Remember Me'), validators=[DataRequired()], render_kw={"id": "invalidCheck", "class":"form-check-input"})
+    submit = SubmitField(('Register'), render_kw={"class":"btn btn-primary"})
 
     def validate_email(self, email):
         user = db.session.scalar(sa.select(User).where(

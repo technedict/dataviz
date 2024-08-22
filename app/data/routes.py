@@ -17,7 +17,7 @@ def cleaning():
     try:
         df = pd.read_csv(filepath)
     except:
-        flash(f'File is Unavailable, Please reupload', category='danger')
+        flash(f'File is Unavailable, Please upload', category='info')
         return redirect(url_for('upload.main'))
     if request.method == 'POST':
         # Retrieve the uploaded data from session (or database if stored)
@@ -53,7 +53,7 @@ def eda():
     try:
         df = pd.read_csv(filepath)
     except:
-        flash(f'File is Unavailable, Please clean to avoid redundancy', category='danger')
+        flash(f'Please clean the file to avoid redundancy', category='danger')
         return redirect(url_for('data.cleaning'))
     if df is None:
         flash('No data available for analysis', 'danger')
@@ -83,7 +83,7 @@ def report():
     try:
         df = pd.read_csv(filepath)
     except:
-        flash(f'File is Unavailable, Please reupload', category='danger')
+        flash(f'File is Unavailable, Please upload', category='info')
         return redirect(url_for('upload.main'))
     if df is None:
         flash('No data available for generating reports', 'danger')

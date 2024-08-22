@@ -1,17 +1,54 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <h1>What do you plan on doing {{current_user.firstname}}</h1>
+    <!-- Main Content -->
+    <div class="main-content" id="content">
+        <div class="container">
+            <h2>Welcome, {{current_user.username.title()}}</h2>
 
-    <h2>Files:</h2>
-    {%if files == []%}
-        <p>You have no files</p>
-    {%else%}
-        <ul>
-            {%for file in files%}
-            <li>{{file}}</li>
-            {%endfor%}
-        </ul>
-        <p><a href="{{url_for('data.clear_session')}}" class="btn">Clear file</a>: This will also delete the file from our server</p>
-    {%endif%}
+            <div class="row">
+                <!-- Recent Uploads Card -->
+                <div class="col-md-5">
+                    <div class="dashboard-card">
+                        <h4>Recent Uploads</h4>
+                        <ul>
+                            {% if files != [] %}
+                            {% for file in files %}
+                            <li><a href="#">{{file}}</a></li>
+                            {% endfor %}
+                            {% else %}
+                            You have no files yet
+                            {% endif %}
+                        </ul>
+                        <a href="#" class="btn btn-primary">View All Uploads</a>
+                    </div>
+                </div>
+
+                <!-- Analysis Tasks Card -->
+                <div class="col-md-5">
+                    <div class="dashboard-card">
+                        <h4>Pending Analysis Tasks</h4>
+                        <ul>
+                            <li><a href="#">Task 1 - Status</a></li>
+                            <li><a href="#">Task 2 - Status</a></li>
+                            <li><a href="#">Task 3 - Status</a></li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">View All Tasks</a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Card -->
+                <div class="col-md-5">
+                    <div class="dashboard-card">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="{{url_for('upload.main')}}">Start New Analysis</a></li>
+                            <li><a href="{{url_for('data.report')}}">Download Reports</a></li>
+                            <li><a href="{{url_for('upload.main')}}">Settings</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

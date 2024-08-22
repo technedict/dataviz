@@ -1,12 +1,20 @@
-{% extends "layout.html" %}
+{% extends "form.html" %}
 
-{% block content %}
-    <h2>Upload Your Dataset</h2>
-    <form action="{{ url_for('upload.main') }}" method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="file" class="form-label">Choose CSV or Excel File</label>
-            <input type="file" name="file" class="form-control" id="file" required>
+{% block body %}
+    <div class="upload-container">
+        <a href="{{ url_for('home.home') }}" class="back"><i class="fas fa-arrow-left"></i></a>
+        <h2>Upload Your Data</h2>
+        <p class="instructions">Please upload your CSV or Excel file for analysis. Make sure your data is formatted correctly.</p>
+        <form method="post" class="needs-validation" novalidate>
+        <div class="input-group mb-3 has-validation">
+            <input type="file" class="form-control" id="inputGroupFile02" accept=".xls,.xlsx,.csv" required>
+            <div class="invalid-feedback">
+                Please choose a file.
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Upload</button>
-    </form>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Upload</button>
+        </div>
+        </form>
+    </div>
 {% endblock %}

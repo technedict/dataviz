@@ -9,7 +9,7 @@ body {
     align-items: center;
     height: 100vh;
 }
-.auth-container {
+.auth-container, .upload-container {
     background-color: #1e1e1e;
     padding: 40px;
     border-radius: 10px;
@@ -17,7 +17,7 @@ body {
     max-width: 500px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
-.auth-container h2 {
+.auth-container, .upload-container h2 {
     color: #BFFF00;
     margin-bottom: 30px;
     text-align: center;
@@ -50,6 +50,10 @@ input::placeholder{
     background-color: #BFFF00;
     color: #121212;
 }
+.btn-primary:active {
+    background-color: #AFFF00 !important;
+    color: #121212;
+}
 .auth-links {
     margin-top: 20px;
     text-align: center;
@@ -65,6 +69,62 @@ input::placeholder{
 .text-center a{
     color: #7FFF00;
     text-decoration: none;
+}
+
+/* Message container styling */
+.message-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #121212;
+    color: #ffffff;
+    border: 2px solid #FFFFFF;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s ease-in-out;
+    z-index: 9999;
+}
+
+.message-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Progress bar styling */
+.progress-bar {
+    height: 5px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%;
+    transform-origin: right;
+    transition: width 10s linear;
+}
+
+.message-container.danger{
+    color: #FF0000 !important;
+    border-color: #FF0000 !important;
+}
+.message-container.success{
+    color: #00FF00 !important;
+    border-color: #00FF00 !important;
+}
+.message-container.info{
+    color: #FFA500 !important;
+    border-color: #FFA500 !important;
+}
+.progress-bar.danger{
+    background-color: #FF0000;
+}
+.progress-bar.success{
+    background-color: #00FF00;
+}
+.progress-bar.info{
+    background-color: #FFA500;
 }
 
 .back .fas{

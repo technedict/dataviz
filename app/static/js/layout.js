@@ -10,13 +10,16 @@ function showMessage(message, category) {
     // Set the color based on the category
     switch (category) {
         case 'success':
-            messageContainer.style.color = '#00FF00'; // Green
+            messageContainer.classList.add('success');// Green
+            progressBar.classList.add('success');
             break;
         case 'danger':
-            messageContainer.style.color = '#FF0000'; // Red
+            messageContainer.classList.add('danger');// Red
+            progressBar.classList.add('danger');
             break;
         case 'info':
-            messageContainer.style.color = '#FFA500'; // Orange
+            messageContainer.classList.add('info');// Orange
+            progressBar.classList.add('info');
             break;
         default:
             messageContainer.style.color = '#FFFFFF'; // Default white
@@ -36,13 +39,12 @@ function showMessage(message, category) {
     setTimeout(function () {
         messageContainer.classList.remove('show');
     }, 5000); 
-}
+};
 
-
-// Toggle collapse class on button click
+// Toggle collappse class on button click
 document.querySelector('.navbar-toggler').addEventListener('click', function() {
     var sidebar = document.getElementById('sidebar');
     var content = document.getElementById('content');
-    sidebar.classList.toggle('collapsed');
-    content.classList.toggle('collapsed');
+    sidebar.classList.toggle('collappsed');
+    content.classList.toggle('collappsed');
 });

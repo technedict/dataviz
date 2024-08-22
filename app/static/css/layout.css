@@ -5,16 +5,13 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .container {
     padding: 40px 20px;
 }
-
 h2 {
     color: #BFFF00;
     margin-bottom: 30px;
 }
-
 .side-navbar {
     background-color: #1e1e1e;
     height: 100vh;
@@ -26,76 +23,50 @@ h2 {
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
     transition: width 0.3s ease;
 }
-
 .side-navbar.collapsed {
     width: 30px;
 }
-
-.navbar-brand a {
-    color: #7FFF00;
-    font-weight: 700;
-    text-decoration: none;
-    transition: width 0.3s ease;
-}
-
-.navbar-brand span {
-    margin-left: 58px;
-}
-
 .side-navbar h4 {
     color: #BFFF00;
     margin-bottom: 20px;
+    transition: opacity 0.3s ease;
 }
-
 .side-navbar.collapsed span {
     display: none;
-    transition: width 1.3s ease;
 }
-
 .side-navbar.collapsed .fas {
-    padding: 1.5px;
-    transition: width 1.3s ease;
+    padding: 8px;
 }
-
 .side-navbar ul {
     list-style: none;
     padding: 0;
 }
-
 .side-navbar ul li {
     margin-bottom: 15px;
 }
-
 .side-navbar ul li a {
     color: #7FFF00;
-    margin-top: 50px;
     text-decoration: none;
     display: flex;
     align-items: center;
 }
-
 .side-navbar ul li a i {
     font-size: 1.2rem;
     margin-right: 15px;
 }
-
 .side-navbar.collapsed ul li a i {
     margin-right: 0;
 }
-
 .side-navbar ul li a:hover {
     text-decoration: underline;
 }
-
 .main-content {
     margin-left: 290px;
     transition: margin-left 0.3s ease;
 }
-
 .main-content.collapsed {
     margin-left: 100px;
 }
-
 .dashboard-card {
     background-color: #1e1e1e;
     padding: 20px;
@@ -104,31 +75,25 @@ h2 {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     max-width: 400px;
 }
-
 .dashboard-card h4 {
     color: #7FFF00;
     margin-bottom: 15px;
 }
-
 .dashboard-card ul {
     list-style: none;
     padding: 0;
 }
-
 .dashboard-card ul li {
     margin-bottom: 10px;
     color: #cccccc;
 }
-
 .dashboard-card ul li a {
     color: #7FFF00;
     text-decoration: none;
 }
-
 .dashboard-card ul li a:hover {
     text-decoration: underline;
 }
-
 .btn-primary {
     background-color: #7FFF00;
     border: none;
@@ -138,18 +103,16 @@ h2 {
     margin-top: 20px;
     transition: background-color 0.3s ease;
 }
-
 .btn-primary:hover {
     background-color: #BFFF00;
     color: #121212;
 }
-
 .navbar-toggler {
     background-color: transparent;
     color: #7FFF00;
-    float: right;
+    margin-left: -10px;
     border: none;
-    font-size: 1.4em;
+    font-size: 2em;
     text-align: center;
 }
 
@@ -184,4 +147,26 @@ h2 {
     width: 100%;
     transform-origin: right;
     transition: width 10s linear;
+}
+
+.message-container.danger{
+    color: #FF0000 !important;
+    border-color: #FF0000 !important;
+}
+.message-container.success{
+    color: #00FF00 !important;
+    border-color: #00FF00 !important;
+}
+.message-container.info{
+    color: #FFA500 !important;
+    border-color: #FFA500 !important;
+}
+.progress-bar.danger{
+    background-color: #FF0000;
+}
+.progress-bar.success{
+    background-color: #00FF00;
+}
+.progress-bar.info{
+    background-color: #FFA500;
 }
